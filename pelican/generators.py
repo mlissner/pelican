@@ -683,7 +683,8 @@ class StaticGenerator(Generator):
             source_path = os.path.join(self.path, sc.source_path)
             save_as = os.path.join(self.output_path, sc.save_as)
             mkdir_p(os.path.dirname(save_as))
-            shutil.copy2(source_path, save_as)
+            # shutil.copy2(source_path, save_as)
+            os.link(source_path, save_as)
             logger.info('Copying %s to %s', sc.source_path, sc.save_as)
 
 
